@@ -12,5 +12,11 @@
 ## A tentative list of milestones for the project
 > Add here a sketch of your planning for the coming weeks. Please mention who does what.
 
+- 2025-04-11 Abstract & Research Q
+- 2025-04-25 Project update 1 - Data collected and filtered
+- 2025-05-09 Project update 2 - prelim. results
+- 2025-05-19 Presentation
+- 2025-05-23 Final submission
+
 ## Documentation
 > This can be added as the project unfolds. You should describe, in particular, what your repo contains and how to reproduce your results.
