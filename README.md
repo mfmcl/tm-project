@@ -1,16 +1,20 @@
-# Alternative food item recommender
+# USDA Food Nutrient Classifier
 
 ## Abstract
-> A max 150-word description of the project question or idea, goals, dataset used. What story you would like to tell and why? What's the motivation behind your project?
+The goal of our project will be to create a food classifier that when given a set of some of the most common nutrients will be able to identify the food category a food with such nutrient values belongs in according to the USDA foundation and branded datasets: https://test.fdc.inonde.io/download-datasets. In the process, we will see which nutrients are the most informative for food classification.
 
 ## Research questions
-> A list of research questions you would like to address during the project. 
+What nutrients are needed in order to perform the best classification, as in what nutrients are the most informative?
 
 ## Dataset
-> List the dataset(s) you want to use, and some ideas on how do you expect to get, manage, process and enrich it/them. Show you've read the docs and are familiar with some examples, and you've a clear idea on what to expect. Discuss data size and format if relevant.
+https://test.fdc.inonde.io/download-datasets
+
+The foundational foods dataset will be used to train the classifier. We will need to filter it so we remove less informative nutrient values (there are a lot). Also, remove all of the information regarding the sampling (there are 1000 lines solely dedicated to samples of hummus). Can be downloaded as JSON or CSV files, 6MB.
+
+The branded foods dataset will tentatively be used to get testing data for the classifier (check out a brand of hummus' nutrient values, plug it into the classifier and see if it predicts the category as Legumes and Legume Products, and then see if it predicts it correctly as hummus). Can be downloaded as JSON or CSV files, 3GB.
 
 ## A tentative list of milestones for the project
-> Add here a sketch of your planning for the coming weeks. Please mention who does what.
+TBD
 
 - 2025-04-11 Abstract & Research Q
 - 2025-04-25 Project update 1 - Data collected and filtered
