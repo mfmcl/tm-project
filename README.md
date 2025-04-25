@@ -1,7 +1,7 @@
 # USDA Food Nutrient Classifier
 
 ## Abstract
-The goal of our project will be to create a food classifier that when given a set of some of the most common nutrients will be able to identify the food category a food with such nutrient values belongs in according to the USDA foundation and branded datasets: https://test.fdc.inonde.io/download-datasets. In the process, we will see which nutrients are the most informative for food classification.
+The goal of our project will be to create a food classifier that when given a set of some of the most common nutrients will be able to identify the food category a food with such nutrient values belongs in according to the USDA foundation and branded datasets. In the process, we will see which nutrients are the most informative for food classification.
 
 ## Research questions
 What nutrients are needed in order to perform the best classification, as in what nutrients are the most informative?
