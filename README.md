@@ -62,10 +62,29 @@ TBD
 - 2025-05-19 Presentation
 - 2025-05-23 Final submission
 
+## Tasks
+
+- [ ] Filter JSON dataset
+- [ ] JSON to pandas DataFrame
+- [ ] Standardize units in DataFrame
+- [ ] Try models (individually) (fuck around and find out)
+- [ ] 
+- [ ] 
+
+
 ## Documentation
 > This can be added as the project unfolds. You should describe, in particular, what your repo contains and how to reproduce your results.
 
+### Repo structure
+```
+data/ - not tracked, place to store datasets
+notebooks/ - Jupyter notebooks
+src/ - pure python scripts
+```
+
 ### Conventions
 
+Python 3.10
 Files and function names: snake_case
 Indentation: tabs (1 tab = 4 spaces)
+
