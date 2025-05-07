@@ -54,15 +54,18 @@ jq '.BrandedFoods
     })' FoodData_Central_branded_food_json_2025-04-24.json > brandedFoods.json
 
 ```
-
 ## A tentative list of milestones for the project
 TBD
 
-- 2025-04-11 Abstract & Research Q
-- 2025-04-25 Project update 1 - Data collected and filtered
-- 2025-05-09 Project update 2 - prelim. results
+- 2025-04-25 Project update 1 - Abstract & Research Q
+- 2025-05-09 Project update 2 - Dataset filtered, first model tests
 - 2025-05-19 Presentation
 - 2025-05-23 Final submission
 
 ## Documentation
 > This can be added as the project unfolds. You should describe, in particular, what your repo contains and how to reproduce your results.
+
+### Conventions
+
+Files and function names: snake_case
+Indentation: tabs (1 tab = 4 spaces)
