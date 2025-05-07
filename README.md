@@ -11,7 +11,49 @@ https://test.fdc.inonde.io/download-datasets
 
 The foundational foods dataset will be used to train the classifier. We will need to filter it so we remove less informative nutrient values (there are a lot). Also, remove all of the information regarding the sampling (there are 1000 lines solely dedicated to samples of hummus). Can be downloaded as JSON or CSV files, 6MB.
 
+**Command to parse data set**:
+```
+jq '.FoundationFoods
+    | map({
+        foodClass,
+        description,
+        foodNutrients: (.foodNutrients
+            | map({
+                name: .nutrient.name,
+                unitName: .nutrient.unitName,
+                max,
+                min,
+                median,
+                amount
+            })
+        )
+    })' FoodData_Central_foundation_food_json_2025-04-24.json > foundationFoods.json
+```
+
 The branded foods dataset will tentatively be used to get testing data for the classifier (check out a brand of hummus' nutrient values, plug it into the classifier and see if it predicts the category as Legumes and Legume Products, and then see if it predicts it correctly as hummus). Can be downloaded as JSON or CSV files, 3GB.
+
+**Command to parse data set**:
+```
+jq '.BrandedFoods
+    | map({
+        foodClass,
+        description,
+        foodNutrients: (.foodNutrients
+            | map({
+                name: .nutrient.name,
+                unitName: .nutrient.unitName,
+                max,
+                min,
+                median,
+                amount
+            })
+        ),
+        ingredients,
+        servingSize,
+        servingSizeUnit
+    })' FoodData_Central_branded_food_json_2025-04-24.json > brandedFoods.json
+
+```
 
 ## A tentative list of milestones for the project
 TBD
