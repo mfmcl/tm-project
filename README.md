@@ -64,12 +64,15 @@ TBD
 
 ## Tasks
 
-- [ ] Filter JSON dataset
-- [ ] JSON to pandas DataFrame
-- [ ] Standardize units in DataFrame
+- [ ] Filter JSON dataset (drop "ml" serving size in branded foods) @saspoto
+- [ ] JSON to pandas DataFrame @ATmachines
+- [ ] Standardize units in DataFrame @ATmachines
+- [ ] Create category mapping between datasets @mfmcl + someone pls
 - [ ] Try models (individually) (fuck around and find out)
-- [ ] 
-- [ ] 
+- [ ] Compare classifier methods, pick one.
+- [ ] Try different nutrients
+- [ ] Find most informative nutrients
+- [ ] profit
 
 
 ## Documentation
