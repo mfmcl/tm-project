@@ -35,24 +35,26 @@ The branded foods dataset will tentatively be used to get testing data for the c
 **Command to parse data set**:
 ```
 jq '.BrandedFoods
-    | map({
-        foodClass,
-        description,
-        foodNutrients: (.foodNutrients
-            | map({
-                name: .nutrient.name,
-                unitName: .nutrient.unitName,
-                max,
-                min,
-                median,
-                amount
-            })
-        ),
-        ingredients,
-        servingSize,
-        servingSizeUnit
-    })' FoodData_Central_branded_food_json_2025-04-24.json > brandedFoods.json
-
+    | map(
+        select((.servingSizeUnit // "") | ascii_downcase != "ml")       # exclude "ml"
+        | {
+            foodClass,
+            description,
+            foodNutrients: (.foodNutrients
+                | map({
+                    name: .nutrient.name,
+                    unitName: .nutrient.unitName,
+                    max,
+                    min,
+                    median,
+                    amount
+                })
+            ),
+            ingredients,
+            servingSize,
+            servingSizeUnit
+        }
+    )' FoodData_Central_branded_food_json_2025-04-24.json > brandedFoods.json
 ```
 ## A tentative list of milestones for the project
 TBD
