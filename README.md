@@ -4,7 +4,7 @@
 The goal of our project will be to create a food classifier that when given a set of some of the most common nutrients will be able to identify the food category a food with such nutrient values belongs in according to the USDA foundation and branded datasets. In the process, we will see which nutrients are the most informative for food classification.
 
 ## Research questions
-What nutrients are needed in order to perform the best classification, as in what nutrients are the most informative?
+Which nutrients are most informative when classifying foods?
 
 ## Dataset
 https://test.fdc.inonde.io/download-datasets
@@ -91,3 +91,46 @@ Python 3.10
 Files and function names: snake_case
 Indentation: tabs (1 tab = 4 spaces)
 
+## Preprocessing
+
+### Category mapping
+
+Foundation foods: 28 categories
+Branded foods: 350 categories
+
+Target: 7 (8?) categories
+- Meat & Fish
+- Vegetables
+- Fruits
+- Nuts
+- Dairy
+- Legumes
+- Grains
+- (Oils?)
+
+### Filtering
+
+- Removed irrelevant information about each food
+- Removed foods with samples measured in ml
+- Removed all foods that aren't within our set categories
+- Removed "dubious foods" - avocados, tomatos, plant-based milks, ... - which we will test later
+
+### Standardizing units
+
+The foundation foods dataset provides nutritional values per serving, as well as the mass and unit of each serving.
+The branded foods include 
+
+Some nutritional values might be measured in g, mg or μg. We standardize the serving sizes to be per 100g across both datasets.
+
+## Model architecture
+
+In: dict: { nutrient: value }
+Out: str: Category
+
+Our initial testing includes random tree and k-nearest neighbor models. We will compare performance and decide which type of model is better suited for further training on different nutrient combinations.
+
+We will move forward training models on different combinations of nutrients, with the goal of finding the subset of nutrients that is most informative for classification.
+
+## Testing
+
+@ATMachines
