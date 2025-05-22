@@ -15,15 +15,13 @@ The foundational foods dataset will be used to train the classifier. We will nee
 ```
 jq '.FoundationFoods
     | map({
-        foodClass,
-        description,
+        foodType: .dataType,
+        foodCategory: .foodCategory.description,
+        foodName: .description,
         foodNutrients: (.foodNutrients
             | map({
-                name: .nutrient.name,
-                unitName: .nutrient.unitName,
-                max,
-                min,
-                median,
+                nutrient: .nutrient.name,
+                unit: .nutrient.unitName,
                 amount
             })
         )
@@ -35,27 +33,18 @@ The branded foods dataset will tentatively be used to get testing data for the c
 **Command to parse data set**:
 ```
 jq '.BrandedFoods
-    | map(
-        select(
-            ((.servingSizeUnit // "") | ascii_downcase) as $unit
-            | ($unit != "ml" and $unit != "kcal" and $unit != "kj" and $unit != "sp gr")
-        )
-        | {
-            dataType,
-            brandedFoodCategory,
-            description,
-            ingredients,
-            servingSize,
-            servingSizeUnit,
-            foodNutrients: (.foodNutrients
-                | map({
-                    name: .nutrient.name,
-                    unitName: .nutrient.unitName,
-                    amount
-                })
-            )
-        }
-    )' FoodData_Central_branded_food_json_2025-04-24.json > brandedFoods.json
+    | map({
+        foodType: .dataType,
+        foodCategory: .brandedFoodCategory,
+        foodName: .description,
+        foodNutrients: (.foodNutrients
+            | map({
+                nutrient: .nutrient.name,
+                unit: .nutrient.unitName,
+                amount
+            })
+        ),
+    })' FoodData_Central_branded_food_json_2025-04-24.json > brandedFoods.json
 ```
 ## A tentative list of milestones for the project
 TBD
