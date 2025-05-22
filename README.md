@@ -36,23 +36,24 @@ The branded foods dataset will tentatively be used to get testing data for the c
 ```
 jq '.BrandedFoods
     | map(
-        select((.servingSizeUnit // "") | ascii_downcase != "ml")       # exclude "ml"
+        select(
+            ((.servingSizeUnit // "") | ascii_downcase) as $unit
+            | ($unit != "ml" and $unit != "kcal" and $unit != "kj" and $unit != "sp gr")
+        )
         | {
-            foodClass,
+            dataType,
+            brandedFoodCategory,
             description,
+            ingredients,
+            servingSize,
+            servingSizeUnit,
             foodNutrients: (.foodNutrients
                 | map({
                     name: .nutrient.name,
                     unitName: .nutrient.unitName,
-                    max,
-                    min,
-                    median,
                     amount
                 })
-            ),
-            ingredients,
-            servingSize,
-            servingSizeUnit
+            )
         }
     )' FoodData_Central_branded_food_json_2025-04-24.json > brandedFoods.json
 ```
@@ -107,6 +108,10 @@ Target: 7 (8?) categories
 - Legumes
 - Grains
 - (Oils?)
+
+### Nutrient mapping
+
+nutrient names across the datasets are not identical.
 
 ### Filtering
 
